@@ -7,32 +7,39 @@ import { OpenAPI } from './core/OpenAPI';
 import { request as __request } from './core/request';
 import type { PostTurnData, PostTurnResponse, GetConfigResponse } from './types.gen';
 
-/**
- * Post turn
- * Calculates the winner of the turn
- * @param data The data for the request.
- * @param data.requestBody
- * @returns GameTurnResponse OK
- * @throws ApiError
- */
-export const postTurn = function (data: PostTurnData): Observable<PostTurnResponse> {
-    return __request(OpenAPI, this.http, {
-        method: 'POST',
-        url: '/api/v1/game-turn',
-        body: data.requestBody,
-        mediaType: 'application/json'
-    });
-};
-
-/**
- * Get game config
- * Returns the game configuration
- * @returns GameConfig OK
- * @throws ApiError
- */
-export const getConfig = function (): Observable<GetConfigResponse> {
-    return __request(OpenAPI, this.http, {
-        method: 'GET',
-        url: '/api/v1/game-config'
-    });
-};
+@Injectable({
+    providedIn: 'root'
+})
+export class GameController {
+    constructor(public readonly http: HttpClient) { }
+    
+    /**
+     * Post turn
+     * Calculates the winner of the turn
+     * @param data The data for the request.
+     * @param data.requestBody
+     * @returns GameTurnResponse OK
+     * @throws ApiError
+     */
+    public postTurn(data: PostTurnData): Observable<PostTurnResponse> {
+        return __request(OpenAPI, this.http, {
+            method: 'POST',
+            url: '/api/v1/game-turn',
+            body: data.requestBody,
+            mediaType: 'application/json'
+        });
+    }
+    
+    /**
+     * Get game config
+     * Returns the game configuration
+     * @returns GameConfig OK
+     * @throws ApiError
+     */
+    public getConfig(): Observable<GetConfigResponse> {
+        return __request(OpenAPI, this.http, {
+            method: 'GET',
+            url: '/api/v1/game-config'
+        });
+    }
+}
