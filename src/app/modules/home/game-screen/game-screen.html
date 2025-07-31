@@ -1,1 +1,6 @@
 <p>game-screen works!</p>
+@for (option of gameOptions; track option) {
+<li>{{ option }}</li>
+} @empty {
+<li>There are no items.</li>
+}

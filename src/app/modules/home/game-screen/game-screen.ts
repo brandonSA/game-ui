@@ -10,5 +10,10 @@ import { GameConfig } from '../../../../api-client';
 export class GameScreen {
   @Input() set gameConfig(gc: GameConfig | null) {
     console.warn('GameConfig is set:', gc);
+    this.gameOptions = gc?.gameChoices || [];
+    this.numberOfGames = gc?.numberOfGames || 0;
   }
+
+  gameOptions: Array<string> = [];
+  numberOfGames: number = 0;
 }
