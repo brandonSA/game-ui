@@ -1,6 +1,23 @@
-<p>game-screen works!</p>
-@for (option of gameOptions; track option) {
-<li>{{ option }}</li>
-} @empty {
-<li>There are no items.</li>
-}
+<div class="row py-2">
+  @for (option of gameOptions; track option) {
+  <div class="col-4">
+    <mat-card class="example-card" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>{{ option }}</mat-card-title>
+      </mat-card-header>
+      <img
+        mat-card-image
+        class="h-50 w-50 mx-auto my-3"
+        [src]="`${option}.png`"
+      />
+      <mat-card-actions>
+        <button matButton class="mx-auto" (click)="postTurn(option)">
+          Select
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  } @empty {
+  <li>There are no items.</li>
+  }
+</div>

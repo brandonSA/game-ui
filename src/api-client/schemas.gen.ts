@@ -26,9 +26,12 @@ export const GameTurnResponseSchema = {
         },
         serverSelection: {
             type: 'string'
+        },
+        userSelection: {
+            type: 'string'
         }
     },
-    required: ['gameResult', 'serverSelection', 'turnNumber']
+    required: ['gameResult', 'serverSelection', 'turnNumber', 'userSelection']
 } as const;
 
 export const GameConfigSchema = {

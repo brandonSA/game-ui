@@ -22,6 +22,7 @@ export type GameTurnResponse = {
     turnNumber: number;
     gameResult: 'Winner' | 'Loser' | 'Tie';
     serverSelection: string;
+    userSelection: string;
 };
 
 export namespace GameTurnResponse {

@@ -5,19 +5,26 @@ import { Observable, of } from 'rxjs';
 import { GameConfig } from '../../../api-client';
 import { GameScreen } from './game-screen/game-screen';
 import { AsyncPipe } from '@angular/common';
-import { selectGameConfig } from '../../store/selectors/game-controller.selectors';
+import {
+  selectGameConfig,
+  selectGameResults,
+} from '../../store/selectors/game-controller.selectors';
+import { GameResult } from '../../shared/models/GameResult';
+import { GameResultDisplay } from './game-result-display/game-result-display';
 
 @Component({
   selector: 'app-home',
-  imports: [GameScreen, AsyncPipe],
+  imports: [GameScreen, AsyncPipe, GameResultDisplay],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
 export class Home implements OnInit {
   gameConfig$: Observable<GameConfig | null> = of(null);
+  gameResults$: Observable<GameResult[]> = of([]);
 
   constructor(private readonly store: Store) {
     this.gameConfig$ = store.select(selectGameConfig);
+    this.gameResults$ = store.select(selectGameResults);
   }
 
   ngOnInit(): void {

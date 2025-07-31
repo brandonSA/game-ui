@@ -1,2 +1,4 @@
-<p>home works!</p>
+<app-game-result-display
+  [gameResults]="gameResults$ | async"
+></app-game-result-display>
 <app-game-screen [gameConfig]="gameConfig$ | async"></app-game-screen>

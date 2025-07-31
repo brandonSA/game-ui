@@ -8,3 +8,8 @@ export const selectGameConfig = createSelector(
   selectGameControlletState,
   (state: GameControllerState) => state.gameConfig
 );
+
+export const selectGameResults = createSelector(
+  selectGameControlletState,
+  (state: GameControllerState) => state.gameResults
+);
