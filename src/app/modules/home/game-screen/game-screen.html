@@ -1,3 +1,4 @@
+@if (!gameOver) {
 <div class="row py-2">
   @for (option of gameOptions; track option) {
   <div class="col-4">
@@ -21,3 +22,7 @@
   <li>There are no items.</li>
   }
 </div>
+} @else {
+<p>Game Over</p>
+<p>Would you like to start another game?</p>
+}

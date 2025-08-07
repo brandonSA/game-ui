@@ -1,4 +1,7 @@
 <app-game-result-display
   [gameResults]="gameResults$ | async"
 ></app-game-result-display>
-<app-game-screen [gameConfig]="gameConfig$ | async"></app-game-screen>
+<app-game-screen
+  [gameConfig]="gameConfig$ | async"
+  [gameResults]="gameResults$ | async"
+></app-game-screen>
