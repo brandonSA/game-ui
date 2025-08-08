@@ -2,7 +2,7 @@
 <div class="row py-2">
   @for (option of gameOptions; track option) {
   <div class="col-4">
-    <mat-card class="example-card" appearance="outlined">
+    <mat-card appearance="outlined">
       <mat-card-header>
         <mat-card-title>{{ option }}</mat-card-title>
       </mat-card-header>
@@ -23,6 +23,25 @@
   }
 </div>
 } @else {
-<p>Game Over</p>
-<p>Would you like to start another game?</p>
+<div class="row py-2">
+  <div class="col-6 mx-auto">
+    <mat-card appearance="outlined">
+      <mat-card-header class="mb-4">
+        <mat-card-title>Game Over</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          Game result: <strong>{{ gameOverResult }}</strong>
+        </p>
+        <p>Would you like to start another game?</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button matButton class="mx-auto" (click)="restartGame()">
+          Restart Game
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  "
+</div>
 }

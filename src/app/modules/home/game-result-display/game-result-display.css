@@ -1,0 +1,20 @@
+.dot {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 8px 12px -6px rgba(0, 128, 0, 0.4);
+  position: relative;
+}
+
+.dot-winner {
+  background-color: green;
+}
+
+.dot-loser {
+  background-color: red;
+}
+
+.dot-tie {
+  background-color: orange;
+}

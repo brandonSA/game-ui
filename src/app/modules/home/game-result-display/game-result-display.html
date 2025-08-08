@@ -18,7 +18,16 @@
 
     <ng-container matColumnDef="result">
       <th mat-header-cell *matHeaderCellDef>Result</th>
-      <td mat-cell *matCellDef="let element">{{ element.gameResult }}</td>
+      <td mat-cell *matCellDef="let element">
+        <span
+          class="dot"
+          [class.dot-winner]="element.gameResult === 'Winner'"
+          [class.dot-loser]="element.gameResult === 'Loser'"
+          [class.dot-tie]="element.gameResult === 'Tie'"
+        >
+        </span>
+        {{ element.gameResult }}
+      </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

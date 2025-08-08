@@ -33,5 +33,9 @@ export const gameControllerReducer = createReducer(
         gameResult: postTurnResponse.gameResult,
       },
     ],
+  })),
+  on(GameControllerActions.resetGameResults, (state) => ({
+    ...state,
+    gameResults: [],
   }))
 );

@@ -1,10 +1,12 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { GameConfig, GameTurnRequest } from '../../../../api-client';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { Store } from '@ngrx/store';
-import { postTurn } from '../../../store/actions/game-controller.actions';
-import { TranslateService } from '@ngx-translate/core';
+import {
+  postTurn,
+  resetGameResults,
+} from '../../../store/actions/game-controller.actions';
 import { GameResult } from '../../../shared/models/GameResult';
 
 @Component({
@@ -15,7 +17,6 @@ import { GameResult } from '../../../shared/models/GameResult';
 })
 export class GameScreen {
   @Input() set gameConfig(gc: GameConfig | null) {
-    console.warn('GameConfig is set:', gc);
     if (gc) {
       this.gameOptions = gc.gameChoices;
       this.numberOfGames = gc.numberOfGames;
@@ -24,20 +25,33 @@ export class GameScreen {
   }
 
   @Input() set gameResults(results: GameResult[] | null) {
-    console.warn('Game results are set:', results);
     this.gameNumber = results?.length ? results?.length + 1 : 1;
 
     if (results?.length === this.numberOfGames) {
       this.gameOver = true;
+
+      const winnerCount = results.filter(
+        (r) => r.gameResult === 'Winner'
+      ).length;
+      const loserCount = results.filter((r) => r.gameResult === 'Loser').length;
+
+      if (winnerCount >= 2) {
+        this.gameOverResult = 'Winner';
+      } else if (loserCount >= 2) {
+        this.gameOverResult = 'Loser';
+      } else {
+        this.gameOverResult = 'Tie';
+      }
+    } else {
+      this.gameOver = false;
     }
   }
-
-  private translate = inject(TranslateService);
 
   gameOptions: GameConfig['gameChoices'] = [];
   numberOfGames: number = 0;
   gameNumber: number = 0;
   gameOver: boolean = false;
+  gameOverResult: string = '';
 
   constructor(private readonly store: Store) {}
 
@@ -52,5 +66,9 @@ export class GameScreen {
         },
       })
     );
+  }
+
+  restartGame(): void {
+    this.store.dispatch(resetGameResults());
   }
 }

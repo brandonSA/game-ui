@@ -27,3 +27,7 @@ export const postTurnFailure = createAction(
   '[Game Controller] Post Turn Failure',
   (error: string) => ({ error })
 );
+
+export const resetGameResults = createAction(
+  '[Game Controller] Reset Game Results'
+);
