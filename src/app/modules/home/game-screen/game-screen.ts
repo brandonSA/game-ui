@@ -37,13 +37,16 @@ export class GameScreen {
       ? results.filter((r) => r.gameResult === 'Tie').length
       : 0;
 
-    if (winnerCount >= 2) {
+    if (winnerCount >= this.numberOfGames - 1) {
       this.gameOverResult = 'Winner';
       this.gameOver = true;
-    } else if (loserCount >= 2) {
+    } else if (loserCount >= this.numberOfGames - 1) {
       this.gameOverResult = 'Loser';
       this.gameOver = true;
-    } else if (tieCount >= 2 || results?.length === this.numberOfGames) {
+    } else if (
+      tieCount >= this.numberOfGames - 1 ||
+      results?.length === this.numberOfGames
+    ) {
       this.gameOverResult = 'Tie';
       this.gameOver = true;
     } else {
