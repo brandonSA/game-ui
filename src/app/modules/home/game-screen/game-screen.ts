@@ -27,21 +27,25 @@ export class GameScreen {
   @Input() set gameResults(results: GameResult[] | null) {
     this.gameNumber = results?.length ? results?.length + 1 : 1;
 
-    if (results?.length === this.numberOfGames) {
+    const winnerCount = results
+      ? results.filter((r) => r.gameResult === 'Winner').length
+      : 0;
+    const loserCount = results
+      ? results.filter((r) => r.gameResult === 'Loser').length
+      : 0;
+    const tieCount = results
+      ? results.filter((r) => r.gameResult === 'Tie').length
+      : 0;
+
+    if (winnerCount >= 2) {
+      this.gameOverResult = 'Winner';
       this.gameOver = true;
-
-      const winnerCount = results.filter(
-        (r) => r.gameResult === 'Winner'
-      ).length;
-      const loserCount = results.filter((r) => r.gameResult === 'Loser').length;
-
-      if (winnerCount >= 2) {
-        this.gameOverResult = 'Winner';
-      } else if (loserCount >= 2) {
-        this.gameOverResult = 'Loser';
-      } else {
-        this.gameOverResult = 'Tie';
-      }
+    } else if (loserCount >= 2) {
+      this.gameOverResult = 'Loser';
+      this.gameOver = true;
+    } else if (tieCount >= 2 || results?.length === this.numberOfGames) {
+      this.gameOverResult = 'Tie';
+      this.gameOver = true;
     } else {
       this.gameOver = false;
     }
