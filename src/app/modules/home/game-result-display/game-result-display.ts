@@ -10,7 +10,6 @@ import { MatTableModule } from '@angular/material/table';
 })
 export class GameResultDisplay {
   @Input() set gameResults(results: GameResult[] | null) {
-    console.warn('Game results are set:', results);
     this.dataSource = results || [];
   }
 

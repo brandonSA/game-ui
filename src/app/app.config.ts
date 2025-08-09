@@ -11,16 +11,19 @@ import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { gameControllerReducer } from './store/reducers/game-controller.reducers';
 import { provideEffects } from '@ngrx/effects';
 import { GameControllerEffects } from './store/effects/game-controller.effects';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { sharedReducer } from './store/reducers/shared.reducers';
+import { loadingInterceptor } from './shared/interceptor/loading/loading';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideHttpClient(),
+    provideHttpClient(withInterceptors([loadingInterceptor])),
     provideStore({
       gameController: gameControllerReducer,
+      shared: sharedReducer,
     }),
     provideEffects(GameControllerEffects),
     provideStoreDevtools({

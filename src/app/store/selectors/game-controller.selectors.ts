@@ -1,15 +1,15 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { GameControllerState } from '../reducers/game-controller.reducers';
 
-export const selectGameControlletState =
+export const selectGameControllerState =
   createFeatureSelector<GameControllerState>('gameController');
 
 export const selectGameConfig = createSelector(
-  selectGameControlletState,
+  selectGameControllerState,
   (state: GameControllerState) => state.gameConfig
 );
 
 export const selectGameResults = createSelector(
-  selectGameControlletState,
+  selectGameControllerState,
   (state: GameControllerState) => state.gameResults
 );
