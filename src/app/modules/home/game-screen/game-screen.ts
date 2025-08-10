@@ -8,10 +8,12 @@ import {
   resetGameResults,
 } from '../../../store/actions/game-controller.actions';
 import { GameResult } from '../../../shared/models/GameResult';
+import { TranslatePipe } from '@ngx-translate/core';
+import { LowerCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-game-screen',
-  imports: [MatCardModule, MatButtonModule],
+  imports: [MatCardModule, MatButtonModule, TranslatePipe, LowerCasePipe],
   templateUrl: './game-screen.html',
   styleUrl: './game-screen.css',
 })

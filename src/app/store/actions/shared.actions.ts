@@ -6,3 +6,8 @@ export const setLoadingTrue = createAction(
 );
 
 export const setLoadingFalse = createAction('[Shared] Set Loading False');
+
+export const setSelectedLanguage = createAction(
+  '[Shared] Set Selected Language',
+  props<{ languageCode: string }>()
+);

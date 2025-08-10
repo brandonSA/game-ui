@@ -6,10 +6,11 @@ import { Observable, of } from 'rxjs';
 import { LoadingState } from './shared/models/Loader';
 import { selectLoadingState } from './store/selectors/shared.selectors';
 import { AsyncPipe } from '@angular/common';
+import { Toolbar } from './shared/components/toolbar/toolbar';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Loader, AsyncPipe],
+  imports: [RouterOutlet, Loader, AsyncPipe, Toolbar],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

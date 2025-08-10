@@ -4,6 +4,7 @@ import * as SharedActions from '../actions/shared.actions';
 
 export interface SharedState {
   loadingState: LoadingState;
+  selectedLanguage: string;
 }
 
 export const initialSharedState: SharedState = {
@@ -11,6 +12,7 @@ export const initialSharedState: SharedState = {
     isLoading: false,
     loadingMessage: '',
   },
+  selectedLanguage: 'en', // Default language
 };
 
 export const sharedReducer = createReducer(
@@ -28,5 +30,9 @@ export const sharedReducer = createReducer(
       isLoading: false,
       loadingMessage: '',
     },
+  })),
+  on(SharedActions.setSelectedLanguage, (state, { languageCode }) => ({
+    ...state,
+    selectedLanguage: languageCode || 'en',
   }))
 );

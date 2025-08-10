@@ -1,0 +1,29 @@
+{
+  "toolbar": {
+    "title": "Rock, Paper, Scissors Game"
+  },
+  "home": {
+    "game-screen": {
+      "select": "Select",
+      "game-over": "Game Over",
+      "game-result": "Game Result",
+      "game-over-message": "Would you like to start another game?",
+      "restart-game": "Restart Game",
+      "rock": "Rock",
+      "paper": "Paper",
+      "scissors": "Scissors",
+      "winner": "Winner",
+      "loser": "Loser",
+      "tie": "Tie"
+    },
+    "game-result-display": {
+      "game-number": "Game number",
+      "your-selection": "Your selection",
+      "server-selection": "Server selection",
+      "result": "Result",
+      "winner": "Winner",
+      "loser": "Loser",
+      "tie": "Tie"
+    }
+  }
+}

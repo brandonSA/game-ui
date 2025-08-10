@@ -4,7 +4,9 @@
   <div class="col-4">
     <mat-card appearance="outlined">
       <mat-card-header>
-        <mat-card-title>{{ option }}</mat-card-title>
+        <mat-card-title
+          >{{ `home.game-screen.${option | lowercase}` | translate}}</mat-card-title
+        >
       </mat-card-header>
       <img
         mat-card-image
@@ -13,7 +15,7 @@
       />
       <mat-card-actions>
         <button matButton class="mx-auto" (click)="postTurn(option)">
-          Select
+          {{ "home.game-screen.select" | translate }}
         </button>
       </mat-card-actions>
     </mat-card>
@@ -27,17 +29,22 @@
   <div class="col-6 mx-auto">
     <mat-card appearance="outlined">
       <mat-card-header class="mb-4">
-        <mat-card-title>Game Over</mat-card-title>
+        <mat-card-title>{{
+          "home.game-screen.game-over" | translate
+        }}</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <p>
-          Game result: <strong>{{ gameOverResult }}</strong>
+          {{ "home.game-screen.game-result" | translate }}
+          <strong
+            >{{ `home.game-screen.${gameOverResult | lowercase}` | translate}}</strong
+          >
         </p>
-        <p>Would you like to start another game?</p>
+        <p>{{ "home.game-screen.game-over-message" | translate }}</p>
       </mat-card-content>
       <mat-card-actions>
         <button matButton class="mx-auto" (click)="restartGame()">
-          Restart Game
+          {{ "home.game-screen.restart-game" | translate }}
         </button>
       </mat-card-actions>
     </mat-card>

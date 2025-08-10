@@ -1,0 +1,7 @@
+<mat-toolbar>
+  <span>{{ "toolbar.title" | translate }}</span>
+  <app-languge-switcher
+    class="ms-auto me-1 pt-4"
+    [selectedLanguage]="selectedLanguage$ | async"
+  ></app-languge-switcher>
+</mat-toolbar>

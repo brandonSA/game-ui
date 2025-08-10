@@ -14,6 +14,8 @@ import { GameControllerEffects } from './store/effects/game-controller.effects';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { sharedReducer } from './store/reducers/shared.reducers';
 import { loadingInterceptor } from './shared/interceptor/loading/loading';
+import { provideTranslateService } from '@ngx-translate/core';
+import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -29,6 +31,14 @@ export const appConfig: ApplicationConfig = {
     provideStoreDevtools({
       maxAge: 25,
       logOnly: true,
+    }),
+    provideTranslateService({
+      loader: provideTranslateHttpLoader({
+        prefix: '/i18n/',
+        suffix: '.json',
+      }),
+      fallbackLang: 'en',
+      lang: 'en',
     }),
   ],
 };

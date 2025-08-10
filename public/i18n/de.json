@@ -1,0 +1,29 @@
+{
+  "toolbar": {
+    "title": "Schere, Stein, Papier Spiel"
+  },
+  "home": {
+    "game-screen": {
+      "select": "Auswählen",
+      "game-over": "Game Over",
+      "game-result": "Spielergebnis",
+      "game-over-message": "Möchtest du ein neues Spiel starten?",
+      "restart-game": "Neues Spiel starten",
+      "rock": "Stein",
+      "paper": "Papier",
+      "scissors": "Schere",
+      "winner": "Gewinner",
+      "loser": "Verlierer",
+      "tie": "Unentschieden"
+    },
+    "game-result-display": {
+      "game-number": "Spiel",
+      "your-selection": "Deine Auswahl",
+      "server-selection": "Serverauswahl",
+      "result": "Ergebnis",
+      "winner": "Gewinner",
+      "loser": "Verlierer",
+      "tie": "Unentschieden"
+    }
+  }
+}

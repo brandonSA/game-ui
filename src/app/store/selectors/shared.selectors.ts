@@ -7,3 +7,8 @@ export const selectLoadingState = createSelector(
   selectSharedState,
   (state: SharedState) => state.loadingState
 );
+
+export const selectLanguage = createSelector(
+  selectSharedState,
+  (state: SharedState) => state.selectedLanguage
+);
