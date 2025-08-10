@@ -7,9 +7,11 @@ import * as SharedActions from '../../../store/actions/shared.actions';
 })
 export class LoadingService {
   constructor(private store: Store) {}
-  show() {
+  show(loadingMessage?: string) {
     this.store.dispatch(
-      SharedActions.setLoadingTrue({ loaderMessage: 'Loading...' })
+      SharedActions.setLoadingTrue({
+        loaderMessage: loadingMessage || 'Loading...',
+      })
     );
   }
   hide() {
