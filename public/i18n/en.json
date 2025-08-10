@@ -21,6 +21,9 @@
       "your-selection": "Your selection",
       "server-selection": "Server selection",
       "result": "Result",
+      "rock": "Rock",
+      "paper": "Paper",
+      "scissors": "Scissors",
       "winner": "Winner",
       "loser": "Loser",
       "tie": "Tie"

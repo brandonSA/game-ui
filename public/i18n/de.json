@@ -21,6 +21,9 @@
       "your-selection": "Deine Auswahl",
       "server-selection": "Serverauswahl",
       "result": "Ergebnis",
+      "rock": "Stein",
+      "paper": "Papier",
+      "scissors": "Schere",
       "winner": "Gewinner",
       "loser": "Verlierer",
       "tie": "Unentschieden"
